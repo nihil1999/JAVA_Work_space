@@ -1,5 +1,12 @@
 class Rbi{
 
+        Rbi()
+        {
+            
+            System.out.println("Constructor in RBI.");
+
+        }
+
       public void giveMoney()
         {
 

@@ -7,6 +7,7 @@ class Static{
 
     //here i gave the final keyword for non-static variable. 
     final int c=55; // we can't change the value further.
+
        static{
          // a=20;
           b=10;

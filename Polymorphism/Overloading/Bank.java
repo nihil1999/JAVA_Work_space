@@ -24,11 +24,11 @@ class Bank{
         System.out.println("SI in int datatype: " + si ) ;   
     }
 
-   /* public static void simple_interest(int principal,int rate_of_interest,int time_period)   //must differ in parameters or return type in parameters, not in return type in method signature.
+   /* public float simple_interest(int principal,int rate_of_interest,int time_period)   //must differ in parameters or return type in parameters, not in return type in method signature.
     {
         float si=(principal*rate_of_interest*time_period)/(100*12);
         System.out.println("SI in int datatype: " + si ) ; 
-        //return si;  
+        return si;  
     }*/
 
     public static void simple_interest(int principal,double rate_of_interest,int time_period)

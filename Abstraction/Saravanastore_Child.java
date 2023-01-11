@@ -30,6 +30,12 @@ class Saravanastore_Child extends Saravanastore_Parent{
           System.out.println("Saravana store built in ownplace.");
     }
 
+    /* public void getamount()
+    {
+         System.out.println("Saravanastore child's amount.");
+
+    } */
+
     public static void main(String arg[])
     {
         Saravanastore_Parent obj=new Saravanastore_Child(100,5000); //here we invoke the 2 argument constructor.    //dynamic binding
@@ -37,7 +43,7 @@ class Saravanastore_Child extends Saravanastore_Parent{
        // System.out.println("amount: " + obj.amt);
         obj.ownplace();
         obj.getamount();
-        
+       // return;
         
 
     }

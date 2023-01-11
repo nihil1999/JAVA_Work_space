@@ -1,0 +1,264 @@
+[1mdiff --git a/Abstraction/Aicte.class b/Abstraction/Aicte.class[m
+[1mindex 927b904..40f6570 100644[m
+Binary files a/Abstraction/Aicte.class and b/Abstraction/Aicte.class differ
+[1mdiff --git a/Abstraction/Aicte.java b/Abstraction/Aicte.java[m
+[1mindex a67a47a..230fa29 100644[m
+[1m--- a/Abstraction/Aicte.java[m
+[1m+++ b/Abstraction/Aicte.java[m
+[36m@@ -1,11 +1,17 @@[m
+ //abstraction using interface keyword.[m
+ [m
+[31m-interface Aicte{        //we need to give the interface keyword inplace of class, so that we don't need to declare abstract for every method.[m
+[32m+[m[32minterface Aicte extends Anna {        //we need to give the interface keyword inplace of class, so that we don't need to declare abstract for every method.[m
+ [m
+    double amount=20000;    //compiler will give public final static by default to an instance variable.[m
+ [m
+[31m-   public void approve();[m
+[31m-   public void grades();[m
+[32m+[m[32m  // public void approve();[m
+[32m+[m[32m  // public void grades();[m
+[32m+[m
+[32m+[m[32m     default public void approve()[m
+[32m+[m[32m    {[m
+[32m+[m[32m        System.out.println("College is AICTE approved in AICTE FILE.");[m
+[32m+[m
+[32m+[m[32m    }[m
+ [m
+ [m
+ }[m
+[1mdiff --git a/Abstraction/College.class b/Abstraction/College.class[m
+[1mindex 8162cea..25e9e3d 100644[m
+Binary files a/Abstraction/College.class and b/Abstraction/College.class differ
+[1mdiff --git a/Abstraction/College.java b/Abstraction/College.java[m
+[1mindex 77c7e0c..47a916e 100644[m
+[1m--- a/Abstraction/College.java[m
+[1m+++ b/Abstraction/College.java[m
+[36m@@ -1,12 +1,12 @@[m
+ class College implements Aicte {        //here we need to give implements inplace of extends, cauz we are using interface class.[m
+ [m
+[31m-    public void approve()[m
+[32m+[m[32m    /*public void approve()[m
+     {[m
+         System.out.println("College is AICTE approved.");[m
+ [m
+[31m-    }[m
+[32m+[m[32m    }*/[m
+ [m
+[31m-     public void grades()[m
+[32m+[m[32m     public void get_grades()[m
+     {[m
+         System.out.println("College follows grades from AICTE.");[m
+ [m
+[36m@@ -17,12 +17,13 @@[m [mclass College implements Aicte {        //here we need to give implements inplac[m
+         Aicte obj=new College();[m
+ [m
+         obj.approve();[m
+[31m-        obj.grades();[m
+[32m+[m[32m        obj.get_grades();[m
+     [m
+           System.out.println("variable in parent class: " + Aicte.amount);    //20000 //instance variable in the parent class can be accessed without object, cauz the compiler will give static by default.[m
+ [m
+          // amount=50000;   //give an error: cannot assign a value to final variable[m
+           System.out.println("changing the variable in parent class: " + amount); //compiler will give final static by default to the instance variable in parent class.[m
+[32m+[m[41m             [m
+ [m
+     }[m
+ [m
+[1mdiff --git a/Abstraction/Saravanastore_Child.class b/Abstraction/Saravanastore_Child.class[m
+[1mindex 8c90b7e..9892320 100644[m
+Binary files a/Abstraction/Saravanastore_Child.class and b/Abstraction/Saravanastore_Child.class differ
+[1mdiff --git a/Abstraction/Saravanastore_Child.java b/Abstraction/Saravanastore_Child.java[m
+[1mindex aa40bb9..100b074 100644[m
+[1m--- a/Abstraction/Saravanastore_Child.java[m
+[1m+++ b/Abstraction/Saravanastore_Child.java[m
+[36m@@ -30,6 +30,12 @@[m [mclass Saravanastore_Child extends Saravanastore_Parent{[m
+           System.out.println("Saravana store built in ownplace.");[m
+     }[m
+ [m
+[32m+[m[32m    /* public void getamount()[m
+[32m+[m[32m    {[m
+[32m+[m[32m         System.out.println("Saravanastore child's amount.");[m
+[32m+[m
+[32m+[m[32m    } */[m
+[32m+[m
+     public static void main(String arg[])[m
+     {[m
+         Saravanastore_Parent obj=new Saravanastore_Child(100,5000); //here we invoke the 2 argument constructor.    //dynamic binding[m
+[36m@@ -37,7 +43,7 @@[m [mclass Saravanastore_Child extends Saravanastore_Parent{[m
+        // System.out.println("amount: " + obj.amt);[m
+         obj.ownplace();[m
+         obj.getamount();[m
+[31m-        [m
+[32m+[m[32m       // return;[m
+         [m
+ [m
+     }[m
+[1mdiff --git a/Inheritance/Multi-level inheritance/Customer.class b/Inheritance/Multi-level inheritance/Customer.class[m
+[1mindex a4dc902..4fcfabf 100644[m
+Binary files a/Inheritance/Multi-level inheritance/Customer.class and b/Inheritance/Multi-level inheritance/Customer.class differ
+[1mdiff --git a/Inheritance/Multi-level inheritance/Customer.java b/Inheritance/Multi-level inheritance/Customer.java[m
+[1mindex a17deae..e6575cd 100644[m
+[1m--- a/Inheritance/Multi-level inheritance/Customer.java[m	
+[1m+++ b/Inheritance/Multi-level inheritance/Customer.java[m	
+[36m@@ -1,6 +1,13 @@[m
+ class Customer extends Sbi{[m
+ [m
+[31m-        public void getMoney()[m
+[32m+[m[32m      Customer()[m
+[32m+[m[32m        {[m
+[32m+[m[32m            super(10);  //refers to parents class constructor.[m
+[32m+[m[32m            System.out.println("Constructor in Customer .");[m
+[32m+[m
+[32m+[m[32m        }[m
+[32m+[m
+[32m+[m[32m  public void getMoney()[m
+         {[m
+ [m
+             System.out.println("Money is getting by customer. ");[m
+[36m@@ -11,7 +18,6 @@[m [mclass Customer extends Sbi{[m
+             Rbi obj=new Customer();[m
+ [m
+             obj.getMoney();[m
+[31m-            obj.giveMoney();[m
+[31m-            [m
+[32m+[m[32m            obj.giveMoney();[m[41m            [m
+         }[m
+ }[m
+[1mdiff --git a/Inheritance/Multi-level inheritance/Rbi.class b/Inheritance/Multi-level inheritance/Rbi.class[m
+[1mindex 64d3ab1..a0d6609 100644[m
+Binary files a/Inheritance/Multi-level inheritance/Rbi.class and b/Inheritance/Multi-level inheritance/Rbi.class differ
+[1mdiff --git a/Inheritance/Multi-level inheritance/Rbi.java b/Inheritance/Multi-level inheritance/Rbi.java[m
+[1mindex a3cc538..7aebd66 100644[m
+[1m--- a/Inheritance/Multi-level inheritance/Rbi.java[m	
+[1m+++ b/Inheritance/Multi-level inheritance/Rbi.java[m	
+[36m@@ -1,5 +1,12 @@[m
+ class Rbi{[m
+ [m
+[32m+[m[32m        Rbi()[m
+[32m+[m[32m        {[m
+[32m+[m[41m            [m
+[32m+[m[32m            System.out.println("Constructor in RBI.");[m
+[32m+[m
+[32m+[m[32m        }[m
+[32m+[m
+       public void giveMoney()[m
+         {[m
+ [m
+[1mdiff --git a/Inheritance/Multi-level inheritance/Sbi.class b/Inheritance/Multi-level inheritance/Sbi.class[m
+[1mindex 8bdc572..20df0b3 100644[m
+Binary files a/Inheritance/Multi-level inheritance/Sbi.class and b/Inheritance/Multi-level inheritance/Sbi.class differ
+[1mdiff --git a/Inheritance/Multi-level inheritance/Sbi.java b/Inheritance/Multi-level inheritance/Sbi.java[m
+[1mindex f92e87d..eec21f1 100644[m
+[1m--- a/Inheritance/Multi-level inheritance/Sbi.java[m	
+[1m+++ b/Inheritance/Multi-level inheritance/Sbi.java[m	
+[36m@@ -1,5 +1,13 @@[m
+ class Sbi extends Rbi{[m
+ [m
+[32m+[m[32m         Sbi(int a)[m
+[32m+[m[32m        {[m
+[32m+[m[32m            //super(); default will be given by compiler that refers to parent class.[m
+[32m+[m[32m            System.out.println("Constructor in SBI.");[m
+[32m+[m[32m            System.out.println("Constructor in SBI: " + a);[m
+[32m+[m
+[32m+[m[32m        }[m
+[32m+[m
+         public void giveMoney()[m
+         {[m
+ [m
+[1mdiff --git a/Instance and Static /Static.java b/Instance and Static /Static.java[m
+[1mindex b2424af..a5e6b94 100644[m
+[1m--- a/Instance and Static /Static.java[m	
+[1m+++ b/Instance and Static /Static.java[m	
+[36m@@ -7,6 +7,7 @@[m [mclass Static{[m
+ [m
+     //here i gave the final keyword for non-static variable. [m
+     final int c=55; // we can't change the value further.[m
+[32m+[m
+        static{[m
+          // a=20;[m
+           b=10;[m
+[1mdiff --git a/Instance and Static /Static_Example1.class b/Instance and Static /Static_Example1.class[m
+[1mindex 61cd22e..886d842 100644[m
+Binary files a/Instance and Static /Static_Example1.class and b/Instance and Static /Static_Example1.class differ
+[1mdiff --git a/Instance and Static /Static_Example1.java b/Instance and Static /Static_Example1.java[m
+[1mindex ca91ec3..0b09b85 100644[m
+[1m--- a/Instance and Static /Static_Example1.java[m	
+[1m+++ b/Instance and Static /Static_Example1.java[m	
+[36m@@ -1,10 +1,20 @@[m
+ public class Static_Example1{[m
+ [m
+[31m-        static int a=10;[m
+[31m-        static int b=5;[m
+[32m+[m[32m       /* static int a=10;[m
+[32m+[m[32m        static int b=5;*/[m
+[32m+[m
+[32m+[m[32m        static int a;[m
+[32m+[m[32m        public final static int b;[m
+ [m
+     public static void add()[m
+         {[m
+             System.out.println(a+b);[m
+         }[m
+[32m+[m
+[32m+[m[32m         public static void main(String arg[])[m
+[32m+[m[32m        {[m
+[32m+[m[32m                System.out.println(a);[m[41m      [m
+[32m+[m[32m                System.out.println(b);[m
+[32m+[m[32m                add();[m
+[32m+[m[32m        }[m
+ }[m
+[1mdiff --git a/Instance and Static /Static_Example2.class b/Instance and Static /Static_Example2.class[m
+[1mindex e4f4a80..33f097d 100644[m
+Binary files a/Instance and Static /Static_Example2.class and b/Instance and Static /Static_Example2.class differ
+[1mdiff --git a/Instance and Static /Static_Example2.java b/Instance and Static /Static_Example2.java[m
+[1mindex 361997f..4503435 100644[m
+[1m--- a/Instance and Static /Static_Example2.java[m	
+[1m+++ b/Instance and Static /Static_Example2.java[m	
+[36m@@ -1,6 +1,6 @@[m
+[31m-//we can access static variable in one class from another class by using classname without creating object in the other class for the logic class.[m
+[32m+[m[32m//we can access static variable in one class from another class by using classname without creating object in the class where main method is.[m
+ [m
+[31m-public class Static_Example2{[m
+[32m+[m[32m/*public class Static_Example2{[m
+ [m
+         public static void main(String arg[])[m
+         {[m
+[36m@@ -10,16 +10,16 @@[m [mpublic class Static_Example2{[m
+         }[m
+ [m
+ [m
+[31m-}[m
+[32m+[m[32m}*/[m
+ [m
+ [m
+ public class Static_Example2 extends Static_Example1 {[m
+ [m
+         public static void main(String arg[])[m
+         {[m
+[31m-                System.out.println(Static_Example1.a);      //Static_Example1 - classname[m
+[31m-                System.out.println(Static_Example1.b);[m
+[31m-                Static_Example1.add();[m
+[32m+[m[32m                System.out.println(a);[m[41m      [m
+[32m+[m[32m                System.out.println(b);[m
+[32m+[m[32m                add();[m
+                 [m
+               [m
+               Static_Example1 obj=new Static_Example2();  //we can call a static method and variable using object.[m
+[1mdiff --git a/Polymorphism/Overloading/Bank.java b/Polymorphism/Overloading/Bank.java[m
+[1mindex e67f89a..455075d 100644[m
+[1m--- a/Polymorphism/Overloading/Bank.java[m
+[1m+++ b/Polymorphism/Overloading/Bank.java[m
+[36m@@ -24,11 +24,11 @@[m [mclass Bank{[m
+         System.out.println("SI in int datatype: " + si ) ;   [m
+     }[m
+ [m
+[31m-   /* public static void simple_interest(int principal,int rate_of_interest,int time_period)   //must differ in parameters or return type in parameters, not in return type in method signature.[m
+[32m+[m[32m   /* public float simple_interest(int principal,int rate_of_interest,int time_period)   //must differ in parameters or return type in parameters, not in return type in method signature.[m
+     {[m
+         float si=(principal*rate_of_interest*time_period)/(100*12);[m
+         System.out.println("SI in int datatype: " + si ) ; [m
+[31m-        //return si;  [m
+[32m+[m[32m        return si;[m[41m  [m
+     }*/[m
+ [m
+     public static void simple_interest(int principal,double rate_of_interest,int time_period)[m
