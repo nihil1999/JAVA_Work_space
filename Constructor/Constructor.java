@@ -6,7 +6,7 @@ class Constructor{
     int a;
     int b;
     int c;
- Constructor(int a)     //constructor name should be same as class name  
+Constructor(int a)     //constructor name should be same as class name  
 {
       //  a=a1;     //parameter variable name shouldn't be same cauz it will consider as a default value.
       //  System.out.println("Constructor" + a);
@@ -27,11 +27,5 @@ public static void main(String arg[])
         System.out.println("Constructor: " + obj.b);
         System.out.println("Constructor: " + obj.c);
 
-        
-
-
-
     } 
-
-
 }

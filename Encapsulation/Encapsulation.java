@@ -1,7 +1,7 @@
 public class Encapsulation{
 
-    private static int a;
-    private  int b;
+    public static int a;
+    private int b;
 
     /*public Encapsulation(int a,int b)
     {
@@ -17,7 +17,23 @@ public class Encapsulation{
     public static void setvalue(int value)
     {
         a=value;
+        System.out.println("Main method: " + a);
     }
     
+    static
+    {
+        a=100;
+        System.out.println("Static in parent: " + a);
+    }
+
+    /* Encapsulation(int a)
+    {
+        System.out.println("Constructore in parent : " + a);
+    }
+
+     Encapsulation()
+    {
+        System.out.println("Constructore in parent : " + a);
+    }*/
     
 }
