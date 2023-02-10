@@ -1,9 +1,0 @@
-/**
- * 
- */
-/**
- * @author logan
- *
- */
-module Java {
-}
